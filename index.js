@@ -8,10 +8,10 @@ var doc;
 document.getElementById('submit').addEventListener("click", function () {
     element = "";
     doc = parser.parseFromString(document.getElementById('code').value, "text/html");
-    console.log(doc)
+    //console.log(doc)
     returnCode(doc.body);
 
-    console.log(element);
+    //console.log(element);
 
 
     shiki
