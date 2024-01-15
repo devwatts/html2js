@@ -5,7 +5,6 @@ let parentStack = [];
 var element = "";
 var doc;
 
-
 document.getElementById('submit').addEventListener("click", function () {
     element = "";
     doc = parser.parseFromString(document.getElementById('code').value, "text/html");
