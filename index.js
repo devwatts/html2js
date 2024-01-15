@@ -5,6 +5,7 @@ let parentStack = [];
 var element = "";
 var doc;
 
+
 document.getElementById('submit').addEventListener("click", function () {
     element = "";
     doc = parser.parseFromString(document.getElementById('code').value, "text/html");
@@ -20,7 +21,7 @@ document.getElementById('submit').addEventListener("click", function () {
         })
         .then(highlighter => {
             const code = highlighter.codeToHtml(element, 'js')
-            document.getElementById('output').innerHTML = code 
+            document.getElementById('output').innerHTML = code
             document.getElementById('outputContainer').style.opacity = "1";
         })
 
@@ -53,16 +54,16 @@ function returnCode(doc) {
             if (doc.children[i].attributes.length > 0) {
                 for (let index = 0; index < doc.children[i].attributes.length; index++) {
                     element = element.concat(`
-                    `+variableName + `.setAttribute("` + doc.children[i].attributes[index].nodeName + `","` + doc.children[i].attributes[index].nodeValue + `");
+                    `+ variableName + `.setAttribute("` + doc.children[i].attributes[index].nodeName + `","` + doc.children[i].attributes[index].nodeValue + `");
                     `);
                 }
             }
             if (!(doc.children[i]).innerHTML.includes("<")) {
-                if(doc.children[i].innerText != "" && doc.children[i].innerText != undefined){
+                if (doc.children[i].innerText != "" && doc.children[i].innerText != undefined) {
                     element = element.concat(`
                     ` + variableName + `.innerHTML = \`` + doc.children[i].innerText + `\`;
                     `);
-                doc.children[i].innerHTML = doc.children[i].innerText
+                    doc.children[i].innerHTML = doc.children[i].innerText
                 }
             }
 
@@ -97,7 +98,7 @@ function randomize(element) {
     return result;
 }
 
-async  function copyToClipBoard(){
+async function copyToClipBoard() {
 
     var e = element;
     t = document.createElement("textarea");
